@@ -5,9 +5,11 @@
 ## Docke环境安装
 
 ```shell
-[root@VM_0_4_centos /]# yum install docker
+sudo yum -y install docker
+sudo docker systemctl enable docker
 # 没有就创建，添加国内镜像加速
-[root@VM_0_4_centos /]# vim /etc/docker/daemon.json
+vim /etc/docker/daemon.json
+# 将下面的JSON字符串放入 daemon.json文件中
 {
 	"registry-mirrors": [
         "https://kfwkfulq.mirror.aliyuncs.com",
@@ -21,8 +23,8 @@
 		"8.8.4.4"
 	]
 }
-[root@VM_0_4_centos /]# systemctl daemon-reload
-[root@VM_0_4_centos /]# systemctl restart docker
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 ```
 
 
