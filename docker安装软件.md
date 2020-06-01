@@ -190,7 +190,7 @@ sudo docker run -d --name=mysql5.7 \
 -v /data/docker/mysql/datadir:/var/lib/mysql \
 -v /data/docker/mysql/conf.d:/etc/mysql/conf.d \
 -e TZ=Asia/Shanghai \
--e MYSQL_ROOT_PASSWORD=123456 mysql:5.7 \
+-e MYSQL_ROOT_PASSWORD=mima520. mysql:5.7 \
 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 ```
 
@@ -201,8 +201,8 @@ sudo docker run -d --name=mysql5.7 \
 - `-v /data/docker/mysql/datadir:/var/lib/mysql`		**映射数据目录**
 - `-v /data/docker/mysql/config/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf`**映射配置文件
 - `-e TZ=Asia/Shanghai` **指定时区为亚洲/上海(中国时区)**
-- `-e MYSQL_ROOT_PASSWORD=123456`	**指定用户密码为123456**
-- `--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci` **设置字符编码****
+- `-e MYSQL_ROOT_PASSWORD=mima520.`	**指定用户密码为mima520.**
+- `--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci` **设置字符编码**
 
 
 
@@ -229,13 +229,13 @@ sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=sqlserver123#' \
 
 **参数说明**：
 
--  **-e 'ACCEPT_EULA=Y'** 设置此参数说明同意 SQL SERVER 使用条款 ,  否则无法使用 
--  **-e 'SA_PASSWORD=密码'** 此处设置 SQL SERVER 数据库 SA 账号的密码 
--  **-e MSSQL_COLLATION=Chinese_PRC_CI_AS** 设置中文排序规则(建议使用中文，否则会出现各种错误)
--  **-e  MSSQL_LCID=2052** 设置为中文(建议使用中文，否则会出现各种错误)
--  **-p 1433:1433** 将宿主机 1433 端口映射到容器的 1433 端口(可以自定义端口)
--  **--name mssql** 设置容器名为 mssql  
--  **-v /data/docker/mssql:/var/opt/mssql** 将宿主机 `/data/docker/mssql` 映射到容器 `/var/opt/mssql` , 方便备份数据
+-  `e 'ACCEPT_EULA=Y'` 设置此参数说明同意 SQL SERVER 使用条款 ,  否则无法使用 
+-  `-e 'SA_PASSWORD=密码'` 此处设置 SQL SERVER 数据库 SA 账号的密码 
+-  `-e MSSQL_COLLATION=Chinese_PRC_CI_AS` 设置中文排序规则(建议使用中文，否则会出现各种错误)
+-  `-e  MSSQL_LCID=2052` 设置为中文(建议使用中文，否则会出现各种错误)
+-  `-p 1433:1433` 将宿主机 1433 端口映射到容器的 1433 端口(可以自定义端口)
+-  `--name mssql` 设置容器名为 mssql  
+-  `-v /data/docker/mssql:/var/opt/mssql` 将宿主机 `/data/docker/mssql` 映射到容器 `/var/opt/mssql` , 方便备份数据
 
 
 
@@ -246,5 +246,6 @@ sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=sqlserver123#' \
 sudo docker exec -it mssql mkdir /var/opt/mssql/backup
 # 将宿主机内的 bak 文件放置到容器对应的目录下
 sudo docker cp JZFZ_CRM_backup.bak mssql:/var/opt/mssql/backup/
+# 后续在客户端连接工具中还原.
 ```
 
